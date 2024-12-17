@@ -14,20 +14,20 @@ class AddressBook:
             print("저장된 연락처 없음\n")
         else:
             for name, i in self.addresses.items():
-                print(f"{name}  {i["phone"]}  {i["email"]}\n")
+                print(f"{name}  {i['phone']}  {i['email']}\n")
 
     def search_address(self):
         name_search = input("검색할 연락처 이름: ")
         if name_search in self.addresses:
-            address = self.addresses["name_search"]
-            print(f"{name_search}  {address["phone"]}  {address["email"]}\n")            
+            address = self.addresses[name_search]
+            print(f"{name_search}  {address['phone']}  {address['email']}\n")            
         else:
             print("저장된 연락처 없음\n")
         
-    def delet_address(self):
-        name_delet = input("삭제할 연락처 이름: ")
-        if name_delet in self.addresses:
-            del self.addresses["name_delet"]
-            print(f"{name_delet} 삭제되었습니다.\n")            
+    def delete_address(self):
+        name_del = input("삭제할 연락처 이름: ")
+        if name_del in self.addresses:
+            del self.addresses[name_del]
+            print(f"{name_del} 삭제되었습니다.\n")            
         else:
             print("저장된 연락처 없음\n")
