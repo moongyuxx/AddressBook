@@ -1,3 +1,4 @@
+import csv
 class AddressBook:
     def __init__(self):
         self.addresses = {}    
@@ -31,3 +32,12 @@ class AddressBook:
             print(f"{name_del} 삭제되었습니다.\n")            
         else:
             print("저장된 연락처 없음\n")
+            
+    def store_address(self):
+        with open ("AddressBook.csv", mode="w", newline="", ) as file:
+            writer = csv.writer(file)
+            writer.writerow(["name", "phone", "email"])
+            for name, i in self.addresses.items():
+                writer.writerow([name, i['phone'], i['email']])
+                
+    
