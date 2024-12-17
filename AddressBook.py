@@ -1,7 +1,9 @@
 import csv
 class AddressBook:
     def __init__(self):
-        self.addresses = {}    
+        self.addresses = {} 
+        self.load_contact()
+   
 
     def add_address(self):
     
@@ -40,4 +42,9 @@ class AddressBook:
             for name, i in self.addresses.items():
                 writer.writerow([name, i['phone'], i['email']])
                 
-    
+    def load_address(self):
+        with open ("AddressBook.csv", mode="w", newline="", ) as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                self.addresses[row['name']] =  {"phone": row['phone'], "email": row['email']}
+                
