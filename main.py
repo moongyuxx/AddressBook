@@ -22,6 +22,7 @@ def main():
         elif menu == 4:
             address.delete_address()
         elif menu == 5:
+            address.store_address() #종료되면 주소록 저장
             break
         else:
             print("1~5를 입력해주세요.")
