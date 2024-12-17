@@ -42,7 +42,10 @@ class AddressBook:
                 writer.writerow([name, i['phone'], i['email']])
                 
     def load_address(self):
-        with open ("AddressBook.csv", mode="r", newline="", ) as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                self.addresses[row['name']] =  {"phone": row['phone'], "email": row['email']}
+        try:
+            with open ("AddressBook.csv", mode="r", newline="", ) as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    self.addresses[row['name']] =  {"phone": row['phone'], "email": row['email']}
+        except FileNotFoundError:
+            self.store_address()
